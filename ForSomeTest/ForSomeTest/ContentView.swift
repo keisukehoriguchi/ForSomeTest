@@ -8,19 +8,27 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    let hoge = Bundle.main.object(forInfoDictionaryKey: "kHogehoge") as! String
+    
     var body: some View {
         
-        #if DEVELOP
-        Text("開発中")
-            .padding()
-        #elseif STAGING
-        Text("確認してください")
-            .padding()
-        #else
-        Text("本番向けです")
-            .padding()
-        #endif
-        
+        VStack{
+            #if DEVELOP
+            Text("開発中")
+                .padding()
+            #elseif STAGING
+            Text("確認してください")
+                .padding()
+            #else
+            Text("本番向けです")
+                .padding()
+            #endif
+            
+            Text(hoge)
+                .foregroundColor(.red)
+            
+        }
     }
 }
 
