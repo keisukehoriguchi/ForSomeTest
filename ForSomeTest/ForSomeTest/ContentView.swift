@@ -10,8 +10,17 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         
-        Text("Hello, world!")
+        #if DEVELOP
+        Text("開発中")
             .padding()
+        #elseif STAGING
+        Text("確認してください")
+            .padding()
+        #else
+        Text("本番向けです")
+            .padding()
+        #endif
+        
     }
 }
 
